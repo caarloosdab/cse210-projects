@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class PromptGenerator
 {
-    private List<string> prompts;
-    private Random random;
+    private List<string> _prompts;
+    private Random _random;
 
     public PromptGenerator()
     {
-        prompts = new List<string>
+        _prompts = new List<string>
         {
             "Who was the most interesting person I interacted with today?",
             "What was the best part of my day?",
@@ -17,13 +17,13 @@ public class PromptGenerator
             "If I had one thing I could do over today, what would it be?"
         };
 
-        random = new Random();
+        _random = new Random();
     }
 
     // Returns a random prompt from the list
     public string GetRandomPrompt()
     {
-        int index = random.Next(prompts.Count);
-        return prompts[index];
+        int index = _random.Next(_prompts.Count);
+        return _prompts[index];
     }
 }

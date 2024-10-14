@@ -4,23 +4,23 @@ using System.IO;
 
 public class Journal
 {
-    private List<Entry> entries;
+    private List<Entry> _entries;
 
     public Journal()
     {
-        entries = new List<Entry>();
+        _entries = new List<Entry>();
     }
 
     // Add a new entry to the journal
     public void AddEntry(Entry entry)
     {
-        entries.Add(entry);
+        _entries.Add(entry);
     }
 
-    // Display all journal entries
+    // Display all journal _entries
     public void DisplayJournal()
     {
-        foreach (Entry entry in entries)
+        foreach (Entry entry in _entries)
         {
             Console.WriteLine(entry.ToString());
         }
@@ -31,17 +31,17 @@ public class Journal
     {
         using (StreamWriter writer = new StreamWriter(filename))
         {
-            foreach (Entry entry in entries)
+            foreach (Entry entry in _entries)
             {
-                writer.WriteLine($"{entry.Date}~|~{entry.Prompt}~|~{entry.Response}");
+                writer.WriteLine($"{entry._date}~|~{entry._prompt}~|~{entry._response}");
             }
         }
     }
 
-    // Load journal entries from a file
+    // Load journal _entries from a file
     public void LoadFromFile(string filename)
     {
-        entries.Clear();
+        _entries.Clear();
         string[] lines = File.ReadAllLines(filename);
 
         foreach (string line in lines)
@@ -50,7 +50,7 @@ public class Journal
             if (parts.Length == 3)
             {
                 Entry entry = new Entry(parts[0], parts[1], parts[2]);
-                entries.Add(entry);
+                _entries.Add(entry);
             }
         }
     }

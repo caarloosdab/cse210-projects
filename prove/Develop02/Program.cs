@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Journal journal = new Journal();
+        Journal _journal = new Journal();
         PromptGenerator promptGenerator = new PromptGenerator();
         bool running = true;
 
@@ -23,19 +23,19 @@ class Program
             switch (choice)
             {
                 case "1":
-                    WriteNewEntry(journal, promptGenerator);
+                    WriteNewEntry(_journal, promptGenerator);
                     break;
 
                 case "2":
-                    journal.DisplayJournal();
+                    _journal.DisplayJournal();
                     break;
 
                 case "3":
-                    SaveJournal(journal);
+                    SaveJournal(_journal);
                     break;
 
                 case "4":
-                    LoadJournal(journal);
+                    LoadJournal(_journal);
                     break;
 
                 case "5":
